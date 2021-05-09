@@ -1,5 +1,5 @@
 import React, {useState, useEffect}  from "react";
-import {Card, Badge} from 'react-bootstrap'
+import {Card, Badge, Spinner} from 'react-bootstrap'
 
 
 const Quotes = () => {
@@ -23,6 +23,13 @@ const Quotes = () => {
 
   return (
     <div className="container">
+        {quotes.length === 0 &&
+          <div className="text-center mt-lg-4" >
+              <Spinner animation="grow" variant="success"  />
+              <Spinner animation="grow" variant="warning"  />
+              <Spinner animation="grow" variant="danger"  />
+          </div>
+        }
           {quotes && quotes.map((quote, idx)=>{
             return (
               <div key={idx} className=" mt-sm-2 mb-sm-2" >
